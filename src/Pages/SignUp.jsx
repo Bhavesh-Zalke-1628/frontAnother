@@ -3,6 +3,7 @@ import HomeLayout from '../Layout/HomeLayout'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-hot-toast'
+import { createAccount } from '../Redux/Slicees/AdminSlice'
 function SignUp() {
 
     const dispatch = useDispatch()
@@ -71,7 +72,7 @@ function SignUp() {
                             Eamil
                         </label>
                         <input
-                            type="text"
+                            type='email'
                             required
                             name='email'
                             id='email'
@@ -86,7 +87,7 @@ function SignUp() {
                             Password
                         </label>
                         <input
-                            type="text"
+                            type='password'
                             required
                             name='password'
                             id='password'
