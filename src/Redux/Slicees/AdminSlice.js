@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../Helper/AxiosInstance";
 import { toast } from 'react-hot-toast'
-import { data } from "autoprefixer";
 const initialState = {
-    status: localStorage.getItem('status') || {},
-    data: localStorage.getItem('data') || false
+    status: localStorage.getItem('status') || false,
+    data: JSON.parse(localStorage.getItem('data')) || false
+
 }
 
 
@@ -31,8 +31,10 @@ export const login = createAsyncThunk('/signin', async (data) => {
         toast.promise(response, {
             loading: "Wait ! Logged in to you account",
             success: (data) => {
+                console.log(data)
                 return data?.data?.msg
             },
+
             error: "Failed to log in"
         })
         return (await response).data
@@ -67,9 +69,10 @@ const adminSlice = createSlice({
         builder
             .addCase(login.fulfilled, (state, action) => {
                 localStorage.setItem('status', true)
-                localStorage.setItem('data', JSON.stringify(action?.payload?.admin))
+                localStorage.setItem('data', JSON.stringify(action?.payload?.adminExist))
                 state.status = true
-                state.data = action?.payload?.admin
+                state.data = action?.payload?.adminExist
+
             })
             .addCase(logout.fulfilled, (state) => {
                 localStorage.clear();

@@ -12,6 +12,7 @@ function Header() {
 
     // for checking the user is logged in or not 
     const isLoogedIn = useSelector((state) => state?.admin?.status)
+    console.log(isLoogedIn)
     // logout the admin
     async function handleLogout(e) {
         e.preventDefault();

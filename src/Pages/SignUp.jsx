@@ -4,15 +4,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-hot-toast'
 import { createAccount } from '../Redux/Slicees/AdminSlice'
+import { BsPersonCircle } from 'react-icons/bs'
 function SignUp() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const [previewImage, setPreviewImage] = useState("");
     const [data, setData] = useState({
         fullname: "",
         email: "",
-        password: ""
+        password: "",
+        profile: ""
     })
 
     function handleUserInput(e) {
@@ -23,6 +26,23 @@ function SignUp() {
         })
     }
 
+    async function getImage(event) {
+        event.preventDefault();
+        const uploadImg = event.target.files[0]
+        if (uploadImg) {
+            setData({
+                ...data,
+                profile: uploadImg
+            });
+            const fileReader = new FileReader()
+
+            fileReader.readAsDataURL(uploadImg)
+            fileReader.addEventListener('load', async function () {
+                setPreviewImage(this.result)
+            })
+        }
+        console.log('hello')
+    }
     async function createNewAccount(event) {
         event.preventDefault();
 
@@ -35,6 +55,7 @@ function SignUp() {
         formData.append('fullname', data.fullname)
         formData.append('email', data.email)
         formData.append('password', data.password)
+        formData.append('profile', data.profile)
 
         const response = dispatch(createAccount(formData))
         if (response?.payload?.success)
@@ -43,7 +64,8 @@ function SignUp() {
         setData({
             fullname: "",
             email: "",
-            password: ""
+            password: "",
+            profile: ""
         })
     }
     return (
@@ -51,8 +73,23 @@ function SignUp() {
             <div className=' w-[100vw] h-[80vh] border border-black flex items-center justify-center'>
                 <form
                     onSubmit={createNewAccount}
-                    noValidate className='h-[65%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
+                    noValidate className='h-[80%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
                     <h1 className=' text-3xl capitalize text-white text-center'>registration form</h1>
+                    <label htmlFor="image_uploads" className="cursor-pointer">
+                        {previewImage ? (
+                            <img className="w-24 h-24 rounded-full m-auto" src={previewImage} />
+                        ) : (
+                            <BsPersonCircle className='w-24 h-24 rounded-full m-auto' />
+                        )}
+                    </label>
+                    <input
+                        onChange={getImage}
+                        className="hidden"
+                        type="file"
+                        name="image_uploads"
+                        id="image_uploads"
+                        accept=".jpg, .jpeg, .png, .svg"
+                    />
                     <div className=' flex flex-col gap-2 mt-2'>
                         <label htmlFor='fullname' className=' text-white text-xl'>
                             Name
