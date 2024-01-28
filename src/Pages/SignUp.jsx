@@ -38,7 +38,8 @@ function SignUp() {
 
         const response = dispatch(createAccount(formData))
         if (response?.payload?.success)
-            navigate('/')
+            console.log('this is the payload data >', response?.payload?.success)
+        navigate('/')
         setData({
             fullname: "",
             email: "",
