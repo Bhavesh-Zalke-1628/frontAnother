@@ -65,7 +65,7 @@ const adminSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(login.fulfilled, (state) => {
+            .addCase(login.fulfilled, (state, action) => {
                 localStorage.setItem('status', true)
                 localStorage.setItem('data', JSON.stringify(action?.payload?.admin))
                 state.status = true

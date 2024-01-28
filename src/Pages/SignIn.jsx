@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import HomeLayout from '../Layout/HomeLayout';
 import { Link } from 'react-router-dom';
+import { login } from '../Redux/Slicees/AdminSlice';
 function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -31,7 +32,7 @@ function SignIn() {
 
     // dispatch the data 
 
-    const res = await dispatch(signin(signInData))
+    const res = await dispatch(login(signInData))
     if (res?.payload?.success)
       navigate('/')
     setSignInData({
@@ -44,7 +45,9 @@ function SignIn() {
     <HomeLayout>
       <div className=' w-[100vw] h-[80vh] border border-black flex items-center justify-center'>
         <form
-          noValidate className='h-[65%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
+          noValidate
+          onSubmit={onLogin}
+          className='h-[65%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
           <h1 className=' text-3xl capitalize text-white text-center'>Log in form</h1>
 
           <div className=' flex flex-col gap-2 mt-2'>
@@ -77,7 +80,7 @@ function SignIn() {
               className=' px-2 text-black bg-transparent border border-white rounded-md'
             />
           </div>
-          <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Log in</button>
+          <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Sign In</button>
           {/* <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl font-semibold'> Login</Link></p> */}
         </form>
       </div>
