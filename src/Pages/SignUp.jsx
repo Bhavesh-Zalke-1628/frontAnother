@@ -73,7 +73,8 @@ function SignUp() {
             <div className=' w-[100vw] h-[80vh] border border-black flex items-center justify-center'>
                 <form
                     onSubmit={createNewAccount}
-                    noValidate className='h-[80%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
+                    noValidate
+                    className='h-[80%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
                     <h1 className=' text-3xl capitalize text-white text-center'>registration form</h1>
                     <label htmlFor="image_uploads" className="cursor-pointer">
                         {previewImage ? (

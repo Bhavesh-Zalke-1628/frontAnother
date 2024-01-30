@@ -22,7 +22,7 @@ function App() {
         <Route path='/admin/profile' element={<AdminProfile />}></Route>
 
         {/* Student Route  */}
-        {/* <Route path='/create-student' element={<CreateStudent />}></Route> */}
+        <Route path='/create-student' element={<CreateStudent />}></Route>
         {/* <Route path='/student/attendance' element={<Attendance />}></Route> */}
 
 

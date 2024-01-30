@@ -30,7 +30,7 @@ function AdminProfile() {
                     <div className=' w-[90%] h-[70%] flex  items-center justify-between px-8 '>
                         <div className=' w-[20%] h-[90%] shadow-[0_0_15px_black] overflow-hidden'>
                             <img 
-                            src={adminData?.profile?.secure_url}
+                            src={adminData?.profile?.secure_url}    
                             className=' object-cover w-full object-center overflow-hidden rounded-lg'
                             alt="" />
                             {/* <IoMdPerson className=' w-full h-full' /> */}
