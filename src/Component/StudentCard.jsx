@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
 function StudentCard({ data }) {
-    // console.log()
-    // console.log(roll)
-    const roll = nanoid()
-    console.log(roll.lengthg)
+
+    // const roll = nanoid()
+    // console.log(roll.lengthg)
+
+
     return (
         <table className=' w-[70%] h-12'>
             <tr>

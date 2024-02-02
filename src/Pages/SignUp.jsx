@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 import { toast } from 'react-hot-toast'
 import { createAccount } from '../Redux/Slicees/AdminSlice'
 import { BsPersonCircle } from 'react-icons/bs'
+import Footer from '../Component/Footer'
+import NavigateArrow from '../Component/NavigateArrow'
 function SignUp() {
 
     const dispatch = useDispatch()
@@ -69,8 +71,9 @@ function SignUp() {
         })
     }
     return (
-        <HomeLayout>
-            <div className=' w-[100vw] h-[80vh] border border-black flex items-center justify-center'>
+        <>
+            <div className=' w-[100vw] h-[80vh] flex items-center justify-center'>
+                <NavigateArrow/>
                 <form
                     onSubmit={createNewAccount}
                     noValidate
@@ -140,7 +143,8 @@ function SignUp() {
                     <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl font-semibold'> Login</Link></p>
                 </form>
             </div>
-        </HomeLayout>
+            <Footer />
+        </>
     )
 }
 

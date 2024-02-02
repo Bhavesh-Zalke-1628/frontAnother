@@ -5,8 +5,9 @@ import SignIn from './Pages/SignIn'
 import NotFoundPage from './Pages/NotFoundPage'
 import SignUp from './Pages/SignUp'
 import AdminProfile from './Pages/AdminProfile'
-import CreateStudent from './Pages/Student/CreateStudent'
 import Attendance from './Pages/Student/Attendance'
+import ShowStudent from './Pages/Student/ShowStudent'
+import CreateStudent from './Pages/Student/CreateStudent'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/admin/profile' element={<AdminProfile />}></Route>
 
         {/* Student Route  */}
+        <Route path='/show-student' element={<ShowStudent />}></Route>
         <Route path='/create-student' element={<CreateStudent />}></Route>
         {/* <Route path='/student/attendance' element={<Attendance />}></Route> */}
 

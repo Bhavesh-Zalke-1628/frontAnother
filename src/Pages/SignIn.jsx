@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import HomeLayout from '../Layout/HomeLayout';
 import { Link } from 'react-router-dom';
 import { login } from '../Redux/Slicees/AdminSlice';
+import Footer from '../Component/Footer';
+import NavigateArrow from '../Component/NavigateArrow';
 function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -42,8 +44,9 @@ function SignIn() {
   }
 
   return (
-    <HomeLayout>
-      <div className=' w-[100vw] h-[80vh] border border-black flex items-center justify-center'>
+    <>
+      <NavigateArrow />
+      <div className=' w-[100vw] h-[80vh]  flex items-center justify-center'>
         <form
           noValidate
           onSubmit={onLogin}
@@ -84,7 +87,8 @@ function SignIn() {
           {/* <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl font-semibold'> Login</Link></p> */}
         </form>
       </div>
-    </HomeLayout>
+      <Footer />
+    </>
   )
 }
 
