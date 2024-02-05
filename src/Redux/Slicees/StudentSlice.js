@@ -5,7 +5,7 @@ import axiosInstance from "../../Helper/AxiosInstance";
 
 
 const initialState = {
-    studentData: JSON.parse(localStorage.getItem('student')) || [],
+    studentData: (localStorage.getItem('student')) || [],
     numberOfStudent: localStorage.getItem('numberOfStudent') || 0
 }
 
@@ -17,7 +17,7 @@ export const getData = createAsyncThunk("/show-student", async () => {
         console.log((await response).data.studentData)
         toast.promise(response, {
             loading: "loading course data...",
-            success: "Courses loaded successfully",
+            success: "Student Data   loaded successfully",
             error: "Failed to get the courses",
         });
         return (await response).data.studentData;
@@ -31,7 +31,12 @@ export const getData = createAsyncThunk("/show-student", async () => {
 export const createStudent = createAsyncThunk("/create-student", async (data) => {
     console.log(data)
     try {
-        const res = axiosInstance.post("/student-info", data);
+        const config = {
+            headers: {
+                'content-Type': 'application/json'
+            }
+        }
+        const res = axiosInstance.post("/student-info", data, config);
         toast.promise(res, {
             loading: "Wait! creating a student",
             success: (data) => {
@@ -62,8 +67,9 @@ const studentSlice = createSlice({
                     state.numberOfStudent = action.payload.length
             })
             .addCase(createStudent.fulfilled, (state, action) => {
-                localStorage.setItem('studentData', action.payload)
-                state.studentData = action.payload
+                console.log(action.payload.student)
+                localStorage.setItem('student', action.payload.student)
+                state.studentData = [...action.payload.student]
             })
     }
 })

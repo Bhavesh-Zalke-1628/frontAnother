@@ -19,15 +19,7 @@ function AdminProfile() {
     return (
         <>
             < div className=' w-full h-[90vh] relative flex justify-center items-center gap-10 flex-col'>
-                {/* <IoArrowBackCircleOutline
-                    onClick={
-                        () => {
-                            navigate(-1)
-                        }
-                    }
-                    className=' text-4xl absolute top-10 left-20  cursor-pointer hover:text-violet-700'
-                /> */}
-                <NavigateArrow/>
+                <NavigateArrow />
                 <div className=' flex flex-col items-center py-10 gap-14 w-[70vw] h-[50vh] border-1  border-gray-500 shadow-lg shadow-indigo-500/40 bg-gradient-to-r from-cyan-500 to-blue-500"'>
                     <div className=' w-[90%] h-[70%] flex  items-center justify-between px-8 '>
                         <div className=' w-[20%] h-[90%] shadow-[0_0_15px_black] overflow-hidden'>

@@ -25,7 +25,7 @@ function App() {
         {/* Student Route  */}
         <Route path='/show-student' element={<ShowStudent />}></Route>
         <Route path='/create-student' element={<CreateStudent />}></Route>
-        {/* <Route path='/student/attendance' element={<Attendance />}></Route> */}
+        <Route path='/student/attendance' element={<Attendance />}></Route>
 
 
 

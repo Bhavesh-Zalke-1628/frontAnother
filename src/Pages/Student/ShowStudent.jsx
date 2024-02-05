@@ -1,8 +1,8 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getData } from '../../Redux/Slicees/StudentSlice'
-import StudentCard from '../../Component/StudentCard'
+import StudentCard from '../../Constant/StudentCard'
 import Footer from '../../Component/Footer'
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 
@@ -15,11 +15,11 @@ function ShowStudent() {
     return state.student
   })
 
-  
 
   const { numberOfStudent } = useSelector((state) => {
     return state.student
   })
+
   console.log('numberOfStudent >', numberOfStudent)
   console.log(studentData)
   async function onLoad() {
@@ -29,7 +29,9 @@ function ShowStudent() {
 
   useEffect(() => {
     onLoad()
-  }, []);
+  },[]);
+
+
   return (
     <>
       <div className='flex items-center justify-center flex-col  bg-blue-200 relative'>
