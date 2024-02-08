@@ -3,8 +3,7 @@ import axiosInstance from "../../Helper/AxiosInstance";
 import { toast } from 'react-hot-toast'
 const initialState = {
     status: localStorage.getItem('status') || false,
-    data: (localStorage.getItem('data')) || {}
-
+    data: JSON.parse(localStorage.getItem('data')) || {}
 }
 
 
@@ -16,6 +15,7 @@ export const createAccount = createAsyncThunk("/signup", async (data) => {
             loading: "Wait! creating your account",
             success: (data) => {
                 console.log(data)
+                toast.success("Student created successfully")
                 return data?.data?.msg;
             },
             error: "Failed to create account"

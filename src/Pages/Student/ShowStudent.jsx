@@ -11,10 +11,14 @@ function ShowStudent() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const { studentData } = useSelector((state) => {
-    return state.student
+
+  const studentData = useSelector((state) => {
+    return state.student.studentData
   })
 
+const availableData = studentData
+
+  console.log('studentData >', availableData)
 
   const { numberOfStudent } = useSelector((state) => {
     return state.student
@@ -29,7 +33,7 @@ function ShowStudent() {
 
   useEffect(() => {
     onLoad()
-  },[]);
+  }, []);
 
 
   return (
@@ -50,7 +54,7 @@ function ShowStudent() {
             <th className=' border-2 text-xl capitalize border-black text-center'>phone</th>
           </tr>
         </table>
-        {studentData.map((element) => {
+        {availableData.map((element) => {
           return <StudentCard key={element._id} data={element} />
         })}
       </div>

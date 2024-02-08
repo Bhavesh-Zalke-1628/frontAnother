@@ -40,7 +40,7 @@ function CreateStudent() {
     const response = dispatch(createStudent(formData))
     if (response?.payload?.success)
       console.log('this is the payload data >', response?.payload?.success)
-    // navigate('/show-student')
+    navigate('/show-student')
     setData({
       name: "",
       email: "",

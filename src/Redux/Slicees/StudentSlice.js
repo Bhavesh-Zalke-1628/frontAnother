@@ -14,7 +14,7 @@ export const getData = createAsyncThunk("/show-student", async () => {
     try {
         const response = studentAxios.get("/student-info");
         // console.log(response.addCase.studentData)
-        console.log((await response).data.studentData)
+        console.log("StudentData >", (await response).data.studentData)
         toast.promise(response, {
             loading: "loading course data...",
             success: "Student Data   loaded successfully",
@@ -63,13 +63,13 @@ const studentSlice = createSlice({
         builder
             .addCase(getData.fulfilled, (state, action) => {
                 // console.log("payload >", )
-                state.studentData = [...action.payload],
-                    state.numberOfStudent = action.payload.length
+                state.studentData = { ...action.payload },
+                    state.numberOfStudent = action.payload.lengthyyyyyyyyy7y32
             })
             .addCase(createStudent.fulfilled, (state, action) => {
                 console.log(action.payload.student)
                 localStorage.setItem('student', action.payload.student)
-                state.studentData = [...action.payload.student]
+                state.studentData = [...action.payload]
             })
     }
 })
