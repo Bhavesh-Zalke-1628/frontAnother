@@ -4,7 +4,7 @@ import StudentSlice from "./Slicees/StudentSlice";
 const store = configureStore({
     reducer: {
         admin: AdminSlice,
-        student: StudentSlice
+        students: StudentSlice
     },
     devTools: true
 })

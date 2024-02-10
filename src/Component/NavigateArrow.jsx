@@ -12,7 +12,7 @@ function NavigateArrow() {
                         navigate(-1)
                     }
                 }
-                className=' text-5xl absolute top-10 left-20  cursor-pointer hover:text-blue-400'
+                className=' text-5xl absolute top-10 left-20  cursor-pointer hover:text-blue-500 transition-all ease-in-out duration-300'
             />
         </>
     )

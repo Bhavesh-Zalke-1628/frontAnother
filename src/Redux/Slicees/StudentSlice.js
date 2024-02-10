@@ -1,32 +1,24 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import studentAxios from "../../Helper/StudentAxios";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import axiosInstance from "../../Helper/AxiosInstance";
+import axios from "axios";
 
 
 const initialState = {
-    studentData: (localStorage.getItem('student')) || [],
-    numberOfStudent: localStorage.getItem('numberOfStudent') || 0
+    studentData: []
 }
 
-
-export const getData = createAsyncThunk("/show-student", async () => {
+export const getStudentData = createAsyncThunk('/show-student', async () => {
     try {
-        const response = studentAxios.get("/student-info");
-        // console.log(response.addCase.studentData)
-        console.log("StudentData >", (await response).data.studentData)
-        toast.promise(response, {
-            loading: "loading course data...",
-            success: "Student Data   loaded successfully",
-            error: "Failed to get the courses",
-        });
-        return (await response).data.studentData;
+        const response = await axiosInstance.get('/student-info')
+        // console.log(studentData)
+        return response.data.studentData
+
     } catch (error) {
-        toast.error(error?.response?.data?.message);
+        console.log(error)
     }
-});
-
-
+})
 
 export const createStudent = createAsyncThunk("/create-student", async (data) => {
     console.log(data)
@@ -56,20 +48,19 @@ export const createStudent = createAsyncThunk("/create-student", async (data) =>
 
 
 const studentSlice = createSlice({
-    name: "student",
+    name: "students",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getData.fulfilled, (state, action) => {
-                // console.log("payload >", )
-                state.studentData = { ...action.payload },
-                    state.numberOfStudent = action.payload.lengthyyyyyyyyy7y32
-            })
             .addCase(createStudent.fulfilled, (state, action) => {
                 console.log(action.payload.student)
                 localStorage.setItem('student', action.payload.student)
                 state.studentData = [...action.payload]
+            })
+            .addCase(getStudentData.fulfilled, (state, action) => {
+                
+                state.studentData =[... action.payload]
             })
     }
 })

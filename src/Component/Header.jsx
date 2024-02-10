@@ -42,7 +42,7 @@ function Header() {
             {!isLoogedIn && (
                 <div className=' flex gap-10 border px-4 py-5'>
                     <Link to='/signin'>
-                        <button className=' bg-blue-700 font-semibold px-4 py-2 text-white rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 shadow-[4px_5px_4px_black]' >Sign In</button>
+                        <button className=' bg-orange-700 font-semibold px-4 py-2 text-white rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 shadow-[4px_5px_4px_black]' >Sign In</button>
                     </Link>
                     <Link to='/signup'>
                         <button className=' font-semibold border px-4 py-2 border-blue-500 rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 hover:text-white hover:shadow-[4px_5px_4px_black]'> Sign Up</button>
@@ -55,7 +55,7 @@ function Header() {
             {isLoogedIn && (
                 <div className=' flex gap-10 border px-4 py-5'>
                     <Link to='/admin/profile'>
-                        <button className=' bg-blue-700 font-semibold px-4 py-2 text-white rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 shadow-[4px_5px_4px_black]' >Profile</button>
+                        <button className=' bg-orange-500 font-semibold px-4 py-2 text-white rounded-md hover:bg-white hover:text-black transition-all ease-in-out duration-300' >Profile</button>
                     </Link>
                     <button className=' font-semibold border px-4 py-2 border-blue-500 rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 hover:text-white hover:shadow-[4px_5px_4px_black]'>
                         <Link onClick={handleLogout}>

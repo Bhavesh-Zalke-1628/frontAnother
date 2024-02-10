@@ -50,12 +50,12 @@ function CreateStudent() {
   return (
 
     <>
-      <div className=' w-[100vw] h-[80vh] flex items-center justify-center'>
+      <div className=' w-[100vw] h-[90vh] flex items-center justify-center'>
         <NavigateArrow />
         <form
           onSubmit={createNewAccount}
           noValidate
-          className='h-[80%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
+          className='h-[70%] w-96 bg-orange-400  rounded-xl py-3 px-7 flex flex-col gap-5 shadow-[0_0_10px_black]'>
           <h1 className=' text-3xl capitalize text-white text-center'>registration form</h1>
 
           <div className=' flex flex-col gap-2 mt-2'>
@@ -85,7 +85,7 @@ function CreateStudent() {
               placeholder='Enter your email'
               value={data.email}
               onChange={handleUserInput}
-              className='px-2 bg-transparent border border-white rounded-md'
+              className='px-2 bg-transparent border border-white text-black rounded-md'
             />
           </div>
           <div className=' flex flex-col gap-2 mt-2'>
@@ -103,7 +103,7 @@ function CreateStudent() {
               className=' px-2 text-black bg-transparent border border-white rounded-md'
             />
           </div>
-          <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Create Student</button>
+          <button className=' mt-4 text-white border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-white  hover:text-black hover:border-none transition-all ease-in duration-300' type='submit'>Create Student</button>
         </form>
       </div>
       <Footer />
