@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import { nanoid } from 'nanoid'
-function StudentCard({ data,index }) {
+function StudentCard({ data ,index}) {
     console.log(data)
 
     return (
