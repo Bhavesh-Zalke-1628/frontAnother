@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import HomeLayout from '../Layout/HomeLayout'
+import HomeLayout from '../../Layout/HomeLayout'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-hot-toast'
-import { createAccount } from '../Redux/Slicees/AdminSlice'
+import { createAccount } from '../../Redux/Slicees/AdminSlice'
 import { BsPersonCircle } from 'react-icons/bs'
-import Footer from '../Component/Footer'
-import NavigateArrow from '../Component/NavigateArrow'
+import Footer from '../../Component/Footer'
+import NavigateArrow from '../../Component/NavigateArrow'
 function SignUp() {
 
     const dispatch = useDispatch()

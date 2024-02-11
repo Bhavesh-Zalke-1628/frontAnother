@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './Pages/Home'
-import SignIn from './Pages/SignIn'
-import NotFoundPage from './Pages/NotFoundPage'
-import SignUp from './Pages/SignUp'
-import AdminProfile from './Pages/AdminProfile'
 import Attendance from './Pages/Student/Attendance'
 import ShowStudent from './Pages/Student/ShowStudent'
 import CreateStudent from './Pages/Student/CreateStudent'
+import SignIn from './Pages/Admin/SignIn'
+import SignUp from './Pages/Admin/SignUp'
+import AdminProfile from './Pages/Admin/AdminProfile'
+import Home from './Pages/MendatorPages/Home'
+import NotFoundPage from './Pages/MendatorPages/NotFoundPage'
 
 function App() {
   return (

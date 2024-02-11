@@ -59,8 +59,9 @@ const studentSlice = createSlice({
                 state.studentData = [...action.payload]
             })
             .addCase(getStudentData.fulfilled, (state, action) => {
-                
-                state.studentData =[... action.payload]
+                console.log(action.payload[0])
+                localStorage.setItem('student', JSON.stringify(action.payload[0]))
+                state.studentData = [...action.payload]
             })
     }
 })

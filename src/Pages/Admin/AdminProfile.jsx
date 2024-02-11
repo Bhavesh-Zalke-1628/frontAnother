@@ -1,11 +1,11 @@
 import React from 'react'
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-import Footer from '../Component/Footer';
+import Footer from '../../Component/Footer';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoMdPerson } from "react-icons/io";
-import NavigateArrow from '../Component/NavigateArrow';
+import NavigateArrow from '../../Component/NavigateArrow';
 function AdminProfile() {
 
     const cuurentDate = new Date()

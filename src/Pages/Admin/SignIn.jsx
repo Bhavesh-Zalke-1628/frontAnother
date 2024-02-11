@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import HomeLayout from '../Layout/HomeLayout';
+import HomeLayout from '../../Layout/HomeLayout';
 import { Link } from 'react-router-dom';
-import { login } from '../Redux/Slicees/AdminSlice';
-import Footer from '../Component/Footer';
-import NavigateArrow from '../Component/NavigateArrow';
+import { login } from '../../Redux/Slicees/AdminSlice';
+import Footer from '../../Component/Footer';
+import NavigateArrow from '../../Component/NavigateArrow';
 function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()

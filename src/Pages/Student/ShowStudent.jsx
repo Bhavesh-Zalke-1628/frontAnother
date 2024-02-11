@@ -39,8 +39,8 @@ const navigate = useNavigate()
             </tr>
           </tbody>
         </table>
-        {studentData.map((element) => {
-          return <StudentCard key={element._id} data={element} />
+        {studentData.map((element,index) => {
+          return <StudentCard key={element._id} data={element} index={index} />
         })}
       </div>
     </>
