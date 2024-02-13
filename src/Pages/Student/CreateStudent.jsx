@@ -103,7 +103,7 @@ function CreateStudent() {
               className=' px-2 text-black bg-transparent border border-white rounded-md'
             />
           </div>
-          <button className=' mt-4 text-white border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-white  hover:text-black hover:border-none transition-all ease-in duration-300' type='submit'>Create Student</button>
+          <button className=' mt-4 text-white border rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-white  hover:text-orange-400 hover:border-none transition-all ease-in duration-300 outline-none border-white' type='submit'>Create Student</button>
         </form>
       </div>
       <Footer />

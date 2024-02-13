@@ -1,11 +1,14 @@
 import React from 'react'
 import Footer from '../Component/Footer';
 import Header from '../Component/Header';
+import { useSelector } from 'react-redux';
 function HomeLayout({ children }) {
+    
+    const theam = useSelector((state) => {return state.Theam})
 
-    return (
+    return (    
         // nav bar 
-        <div className=' h-[100vh] w-full'>
+        <div className={' h-[100vh] w-full'+(theam? "" :" text-white bg-black border-none")}>
             <Header />
             {children}
             <Footer />
