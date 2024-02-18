@@ -10,14 +10,16 @@ function Attendance() {
     const dispatch = useDispatch()
 
     const date = new Date()
-    console.log(date)
+    // console.log(date)
     const [rollNumber, setRollNumber] = useState(1)
+    const [presentStudent, setPresentStudent] = useState(0)
+    const [absentStudent, setAbsentStudent] = useState(0)
 
     const { studentData } = useSelector((state) => {
         return state.students
     })
 
-
+    console.log(studentData.length)
     async function onGetData() {
         dispatch(getStudentData())
     }
@@ -30,29 +32,64 @@ function Attendance() {
             setRollNumber(rollNumber + 1)
         }
     }
-
+    function presentStudentChagne() {
+        if (presentStudent + absentStudent < studentData.length) {
+            let counter = presentStudent + 1
+            setPresentStudent(counter)
+        }
+    }
+    function absentStudentChange() {
+        if (absentStudent + presentStudent < studentData.length) {
+            let counter = absentStudent + 1
+            setAbsentStudent(counter)
+        }
+    }
     function present() {
         handleClick()
+        presentStudentChagne()
+
     }
+    const total = presentStudent + absentStudent
     function absent() {
         handleClick()
+        absentStudentChange()
     }
     useEffect(() => {
         onGetData()
     }, []);
     return (
-        <div className=' w-full h-screen flex items-center justify-center flex-col '>
+        <div className=' w-full h-screen flex items-center justify-center flex-col relative '>
             <h1 className=' text-4xl fixed top-10'>Attendance</h1>
             <h1>
                 Date : {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
             </h1>
+            
+            <div className=' px-7 py-4 bg-orange-400 rounded-lg absolute top-20 right-44 flex items-center justify-center gap-5'>
+                <div className=' flex  text-center flex-col gap-2'>
+                    <h3 className=' text-xl font-semibold text-white'>Present</h3>
+                    <h1 className=' bg-white py-2 rounded-lg text-xl font-semibold'>{presentStudent}</h1>
+
+                </div>
+                <h3 className=' text-center text-2xl mt-7 text-white'>+</h3>
+
+                <div className=' flex  text-center flex-col gap-2'>
+                    <h3 className=' text-xl font-semibold text-white'>Absent</h3>
+                    <h1 className=' bg-white py-2 rounded-lg text-xl font-semibold'>{absentStudent}</h1>
+
+                </div>
+                <h3 className=' text-center text-2xl mt-7 text-white'>=</h3>
+                <div className=' flex  text-center flex-col gap-2'>
+                    <h3 className=' text-xl font-semibold text-white'>Total</h3>
+                    <h1 className=' bg-white py-2 rounded-lg text-xl font-semibold'>{studentData.length}</h1>
+
+                </div>
+            </div>
             <div className=' h-96 w-96 mt-2 bg-orange-400 flex flex-col items-center py-6 rounded-lg'>
                 <IoPersonCircleOutline
                     className=' text-white h-52 w-40' />
                 <h1 className=' text-white font-semibold text-xl'>{rollNumber}  </h1>
                 <h1 className=' text-xl font-semibold text-center mt-5 text-white'>Name : {singleData.name}</h1>
                 <p className=' font-semibold text-center mt-5 text-white'>Email : {singleData.email}</p>
-
                 <div className=' w-[90%] mt-10 h-28 flex gap-10 items-center justify-center'>
                     <button
                         onClick={present}
@@ -67,7 +104,7 @@ function Attendance() {
 
                 </div>
             </div>
-            {/* <Days/>   */}
+            {/*<Days/>*/}
             <Footer />
         </div>
     )

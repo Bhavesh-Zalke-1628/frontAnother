@@ -61,10 +61,12 @@ function Header() {
 
                 {isLoogedIn && (
                     <div className=' flex gap-10 border px-4 py-5'>
-                        <Link to='/admin/profile'>
-                            <button className=' bg-orange-500 font-semibold px-4 py-2 text-white rounded-md hover:bg-white hover:text-black transition-all ease-in-out duration-300' >Profile</button>
-                        </Link>
-                        <button className=' font-semibold border px-4 py-2 border-blue-500 rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 hover:text-white hover:shadow-[4px_5px_4px_black]'>
+                        <button className=' font-semibold px-4 py-3 bg-orange-400 rounded-md transition-all ease-in-out duration-300 hover:text-black hover:bg-white border-2 hover:border-orange-400'>
+                            <Link to='/admin/profile'>
+                                Profile
+                            </Link>
+                        </button>   
+                        <button className=' font-semibold border px-4 py-1 border-orange-500 rounded-md transition-all ease-in-out duration-300 hover:text-white hover:bg-orange-400 '>
                             <Link onClick={handleLogout}>
                                 Log out
                             </Link>
