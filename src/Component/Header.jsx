@@ -47,12 +47,12 @@ function Header() {
             {/* Not a logged in */}
             <div className=' flex flex-row gap-4 items-center justify-center'>
                 {!isLoogedIn && (
-                    <div className={' flex gap-10 border px-4 py-5' + (theam ? '' : 'dark')}>
+                    <div className={'flex gap-10 border px-4 py-4' + (theam ? '' : 'dark')}>
                         <Link to='/signin'>
-                            <button className=' bg-orange-700 font-semibold px-4 py-2 text-white rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 shadow-[4px_5px_4px_black]' >Sign In</button>
+                            <button className='font-semibold px-4 py-2 border bg-blue-600 hover:text-white rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300' >Sign In</button>
                         </Link>
                         <Link to='/signup'>
-                            <button className=' font-semibold border px-4 py-2 border-blue-500 rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 hover:text-white hover:shadow-[4px_5px_4px_black]'> Sign Up</button>
+                            <button className='font-semibold border px-4 py-2 border-blue-500 rounded-md hover:bg-blue-800 transition-all ease-in-out duration-300 hover:text-white '> Sign Up</button>
                         </Link>
                     </div>
                 )}
@@ -81,7 +81,7 @@ function Header() {
                 >
                     {theam &&
                         <MdModeNight
-                            className={'icon' + theam ? '' : ' bg-black text-white border-none'}
+                            className={'icon text-xl border-2 border-white' + theam ? '' : ' bg-black text-white border-none'}
                         />
                     }
                     {!theam &&

@@ -10,16 +10,15 @@ function Attendance() {
     const dispatch = useDispatch()
 
     const date = new Date()
-    // console.log(date)
     const [rollNumber, setRollNumber] = useState(1)
     const [presentStudent, setPresentStudent] = useState(0)
     const [absentStudent, setAbsentStudent] = useState(0)
-
+    const [isPresent, setIsPresent] = useState(true)
+    const [isAbsent, setIsAbsent] = useState(true)
     const { studentData } = useSelector((state) => {
         return state.students
     })
 
-    console.log(studentData.length)
     async function onGetData() {
         dispatch(getStudentData())
     }
@@ -28,7 +27,6 @@ function Attendance() {
     function handleClick() {
         if (rollNumber < studentData.length) {
             setSingleData(studentData[rollNumber])
-            console.log(singleData.name)
             setRollNumber(rollNumber + 1)
         }
     }
@@ -47,15 +45,24 @@ function Attendance() {
     function present() {
         handleClick()
         presentStudentChagne()
-
+        setIsPresent({
+            isPresent: true
+        })
+        console.log(isPresent)
     }
-    const total = presentStudent + absentStudent
     function absent() {
         handleClick()
         absentStudentChange()
+        setIsAbsent({
+            isAbsent: true
+        })
+
+        console.log(isAbsent)
     }
     useEffect(() => {
+        
         onGetData()
+
     }, []);
     return (
         <div className=' w-full h-screen flex items-center justify-center flex-col relative '>
@@ -63,7 +70,7 @@ function Attendance() {
             <h1>
                 Date : {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
             </h1>
-            
+
             <div className=' px-7 py-4 bg-orange-400 rounded-lg absolute top-20 right-44 flex items-center justify-center gap-5'>
                 <div className=' flex  text-center flex-col gap-2'>
                     <h3 className=' text-xl font-semibold text-white'>Present</h3>
@@ -104,7 +111,7 @@ function Attendance() {
 
                 </div>
             </div>
-            {/*<Days/>*/}
+            <Days />
             <Footer />
         </div>
     )

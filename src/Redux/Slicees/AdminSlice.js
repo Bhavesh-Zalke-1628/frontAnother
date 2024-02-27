@@ -3,7 +3,7 @@ import axiosInstance from "../../Helper/AxiosInstance";
 import { toast } from 'react-hot-toast'
 const initialState = {
     status: localStorage.getItem('status') || false,
-    data: JSON.parse(localStorage.getItem('data')) || {}
+    data: (localStorage.getItem('data')) || {}
 }
 
 

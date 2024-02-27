@@ -46,11 +46,11 @@ function SignIn() {
   return (
     <>
       <NavigateArrow />
-      <div className=' w-[100vw] h-[80vh]  flex items-center justify-center'>
+      <div className=' w-[100vw] min-h-[84vh] flex items-center justify-center gap-20'>
         <form
           noValidate
           onSubmit={onLogin}
-          className='h-[65%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
+          className='min-h-[50vh] w-96 bg-blue-400  rounded-xl px-7 flex flex-col gap-3 py-3'>
           <h1 className=' text-3xl capitalize text-white text-center'>Log in form</h1>
 
           <div className=' flex flex-col gap-2 mt-2'>
@@ -65,7 +65,7 @@ function SignIn() {
               placeholder='Enter your email'
               value={signInData.email}
               onChange={handleUserInput}
-              className='px-2 bg-transparent border border-white rounded-md'
+              className='px-2 bg-transparent border border-white rounded-md outline-none  '
             />
           </div>
           <div className=' flex flex-col gap-2 mt-2'>
@@ -80,11 +80,18 @@ function SignIn() {
               placeholder='Enter your password'
               value={signInData.password}
               onChange={handleUserInput}
-              className=' px-2 text-black bg-transparent border border-white rounded-md'
+              className=' px-2 text-black bg-transparent border border-white outline-none rounded-md'
             />
           </div>
           <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Sign In</button>
-          {/* <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl font-semibold'> Login</Link></p> */}
+          <p className=' text-center text-lg'>Do not have account
+            {" ?   "}  
+            <span className=' text-center text-blue-900 underline text-xl mt-10 hover:text-white'>
+              <Link to='/signup'>
+                SignUp
+              </Link>
+            </span>
+          </p>
         </form>
       </div>
       <Footer />

@@ -140,7 +140,7 @@ function SignUp() {
                         />
                     </div>
                     <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Register</button>
-                    <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl font-semibold'> Login</Link></p>
+                    <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl hover:text-white'> Login</Link></p>
                 </form>
             </div>
             <Footer />
