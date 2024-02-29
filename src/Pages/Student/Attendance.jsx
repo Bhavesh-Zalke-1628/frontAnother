@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { getStudentData } from '../../Redux/Slicees/StudentSlice'
 import { IoPersonCircleOutline } from "react-icons/io5"
 import Footer from '../../Component/Footer'
+import { absentThunk, presentThunk } from '../../Redux/Slicees/AttendacneSlice'
 function Attendance() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -16,9 +17,8 @@ function Attendance() {
         return state.students
     })
 
-     console.log(studentData)
     async function onGetData() {
-        dispatch(getStudentData())
+        await dispatch(getStudentData())
     }
 
     const [singleData, setSingleData] = useState(JSON.parse(localStorage.getItem('student')))
@@ -45,18 +45,20 @@ function Attendance() {
 
 
     async function present() {
-        let data = true
+        console.log(singleData)
+        console.log("hello I am present")
         handleClick()
         presentStudentChagne()
-        await dispatch(present(singleData))
+        await dispatch(presentThunk(singleData._id))
     }
 
 
     async function absent() {
+        console.log("hello I am absent")
         let data = true
         handleClick()
         absentStudentChange()
-        await dispatch(absent(singleData))
+        await dispatch(absentThunk(singleData._id))
     }
 
 

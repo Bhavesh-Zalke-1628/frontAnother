@@ -26,20 +26,20 @@ function AdminProfile() {
                         <div className='w-[20%] h-[90%]'>
 
                             <div className=' h-48 shadow-[0_0_10px_black] overflow-hidden rounded-lg flex items-center justify-center'>
-                                
+
                                 {
-                                    !adminData && adminData?.profile?.secure_url ?
-                                    (<img
-                                        src={adminData?.profile?.secure_url}
-                                        className=' object-cover w-full object-center overflow-hidden roundedl-lg h-full'
-                                        alt="" />) :(
-                                            
-                                                <BsPersonCircle className=' text-9xl text-white '/>
+                                    adminData && adminData?.profile?.secure_url ?
+                                        (<img
+                                            src={adminData?.profile?.secure_url}
+                                            className=' object-cover w-full object-center overflow-hidden roundedl-lg h-full'
+                                            alt="" />) : (
+
+                                            <BsPersonCircle className=' text-9xl text-white ' />
                                         )
                                 }
                             </div>
-                                <p className=' text-xl text-center capitalize mt-10'>name :<br/><span>{adminData.fullname}</span></p>
-                                <p className=' text-lg text-center'>Email  {adminData.email}</p>
+                            <p className=' text-xl text-center capitalize mt-10'>name :<br /><span>{adminData.fullname}</span></p>
+                            <p className=' text-lg text-center'>Email  {adminData.email}</p>
                         </div>
                         <div className=' w-[75%] h-[90%]  flex flex-col gap-14'>
                             <h1 className=' text-7xl capitalize text-center font-semibold'>{adminData.fullname}</h1>

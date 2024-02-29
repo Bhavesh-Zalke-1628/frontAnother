@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import HomeLayout from '../../Layout/HomeLayout';
 import { Link } from 'react-router-dom';
 import { login } from '../../Redux/Slicees/AdminSlice';
 import Footer from '../../Component/Footer';
@@ -36,7 +35,7 @@ function SignIn() {
 
     const res = await dispatch(login(signInData))
     if (res?.payload?.success)
-      navigate('/')
+      navigate('/admin/profile')
     setSignInData({
       email: "",
       password: ""
