@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { getStudentData } from '../../Redux/Slicees/StudentSlice'
 import { IoPersonCircleOutline } from "react-icons/io5"
 import Footer from '../../Component/Footer'
-import Days from '../../Constant/Days'
 function Attendance() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -13,17 +12,18 @@ function Attendance() {
     const [rollNumber, setRollNumber] = useState(1)
     const [presentStudent, setPresentStudent] = useState(0)
     const [absentStudent, setAbsentStudent] = useState(0)
-    const [isPresent, setIsPresent] = useState(true)
-    const [isAbsent, setIsAbsent] = useState(true)
     const { studentData } = useSelector((state) => {
         return state.students
     })
 
+     console.log(studentData)
     async function onGetData() {
         dispatch(getStudentData())
     }
 
     const [singleData, setSingleData] = useState(JSON.parse(localStorage.getItem('student')))
+
+
     function handleClick() {
         if (rollNumber < studentData.length) {
             setSingleData(studentData[rollNumber])
@@ -42,27 +42,26 @@ function Attendance() {
             setAbsentStudent(counter)
         }
     }
-    function present() {
+
+
+    async function present() {
+        let data = true
         handleClick()
         presentStudentChagne()
-        setIsPresent({
-            isPresent: true
-        })
-        console.log(isPresent)
+        await dispatch(present(singleData))
     }
-    function absent() {
+
+
+    async function absent() {
+        let data = true
         handleClick()
         absentStudentChange()
-        setIsAbsent({
-            isAbsent: true
-        })
-
-        console.log(isAbsent)
+        await dispatch(absent(singleData))
     }
-    useEffect(() => {
-        
-        onGetData()
 
+
+    useEffect(() => {
+        onGetData()
     }, []);
     return (
         <div className=' w-full h-screen flex items-center justify-center flex-col relative '>
@@ -71,7 +70,7 @@ function Attendance() {
                 Date : {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
             </h1>
 
-            <div className=' px-7 py-4 bg-orange-400 rounded-lg absolute top-20 right-44 flex items-center justify-center gap-5'>
+            <div className=' px-7 py-4 bg-blue-400 rounded-lg absolute top-20 right-44 flex items-center justify-center gap-5'>
                 <div className=' flex  text-center flex-col gap-2'>
                     <h3 className=' text-xl font-semibold text-white'>Present</h3>
                     <h1 className=' bg-white py-2 rounded-lg text-xl font-semibold'>{presentStudent}</h1>
@@ -91,9 +90,10 @@ function Attendance() {
 
                 </div>
             </div>
-            <div className=' h-96 w-96 mt-2 bg-orange-400 flex flex-col items-center py-6 rounded-lg'>
+            <div className=' h-96 w-96 mt-2 bg-blue-400 flex flex-col items-center py-6 rounded-lg'>
                 <IoPersonCircleOutline
-                    className=' text-white h-52 w-40' />
+                    className=' text-white h-52 w-40'
+                />
                 <h1 className=' text-white font-semibold text-xl'>{rollNumber}  </h1>
                 <h1 className=' text-xl font-semibold text-center mt-5 text-white'>Name : {singleData.name}</h1>
                 <p className=' font-semibold text-center mt-5 text-white'>Email : {singleData.email}</p>
@@ -111,7 +111,7 @@ function Attendance() {
 
                 </div>
             </div>
-            <Days />
+            {/* <Days /> */}
             <Footer />
         </div>
     )

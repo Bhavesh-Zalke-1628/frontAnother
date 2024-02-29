@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoMdPerson } from "react-icons/io";
 import NavigateArrow from '../../Component/NavigateArrow';
+import { BsPersonCircle } from 'react-icons/bs';
 function AdminProfile() {
 
     const cuurentDate = new Date()
@@ -20,16 +21,21 @@ function AdminProfile() {
         <>
             < div className=' w-full h-[90vh] relative flex justify-center items-center gap-10 flex-col'>
                 <NavigateArrow />
-                <div className=' flex flex-col items-center py-10 gap-14 w-[70vw] h-[70vh] bg-blue-400 rounded shadow-[0_0_17px_black]'>
+                <div className=' flex flex-col items-center py-10 gap-14 w-[70vw] h-[70vh] bg-blue-400 rounded shadow-[0_0_10px_gray]'>
                     <div className=' w-[90%] h-[70%] flex  items-center justify-between'>
                         <div className='w-[20%] h-[90%]'>
 
-                            <div className='  shadow-[0_0_15px_black] overflow-hidden rounded-lg'>
+                            <div className=' h-48 shadow-[0_0_10px_black] overflow-hidden rounded-lg flex items-center justify-center'>
+                                
                                 {
-                                    <img
+                                    !adminData && adminData?.profile?.secure_url ?
+                                    (<img
                                         src={adminData?.profile?.secure_url}
                                         className=' object-cover w-full object-center overflow-hidden roundedl-lg h-full'
-                                        alt="" />
+                                        alt="" />) :(
+                                            
+                                                <BsPersonCircle className=' text-9xl text-white '/>
+                                        )
                                 }
                             </div>
                                 <p className=' text-xl text-center capitalize mt-10'>name :<br/><span>{adminData.fullname}</span></p>

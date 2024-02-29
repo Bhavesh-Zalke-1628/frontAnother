@@ -55,7 +55,7 @@ function CreateStudent() {
         <form
           onSubmit={createNewAccount}
           noValidate
-          className='h-[70%] w-96 bg-orange-400  rounded-xl py-3 px-7 flex flex-col gap-5 shadow-[0_0_10px_black]'>
+          className='h-[70%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col gap-5 shadow-[0_0_10px_black]'>
           <h1 className=' text-3xl capitalize text-white text-center'>registration form</h1>
 
           <div className=' flex flex-col gap-2 mt-2'>
@@ -70,7 +70,7 @@ function CreateStudent() {
               placeholder='Enter your name'
               value={data.name}
               onChange={handleUserInput}
-              className='px-2 bg-transparent border border-white rounded-md'
+              className='px-2 bg-transparent border border-white rounded-md outline-none'
             />
           </div>
           <div className=' flex flex-col gap-2 mt-2'>
@@ -85,7 +85,7 @@ function CreateStudent() {
               placeholder='Enter your email'
               value={data.email}
               onChange={handleUserInput}
-              className='px-2 bg-transparent border border-white text-black rounded-md'
+              className='px-2 bg-transparent border border-white text-black rounded-md outline-none'
             />
           </div>
           <div className=' flex flex-col gap-2 mt-2'>
@@ -100,10 +100,10 @@ function CreateStudent() {
               placeholder='Enter your phone'
               value={data.phone}
               onChange={handleUserInput}
-              className=' px-2 text-black bg-transparent border border-white rounded-md'
+              className=' px-2 text-black bg-transparent border border-white rounded-md outline-none'
             />
           </div>
-          <button className=' mt-4 text-white border rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-white  hover:text-orange-400 hover:border-none transition-all ease-in duration-300 outline-none border-white' type='submit'>Create Student</button>
+          <button className=' mt-4 text-black border rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600 hover:border-white hover:border-2  hover:text-white hover:border-none transition-all ease-in duration-300 outline-none border-white' type='submit'>Create Student</button>
         </form>
       </div>
       <Footer />
