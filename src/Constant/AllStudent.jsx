@@ -1,6 +1,8 @@
 import React from 'react'
 
-function AllStudent() {
+function AllStudent({data}) {
+
+    console.log(data)
     return (
         <table className=' w-[70%] h-12 sticky top-0 left-60 bg-white mt-1'>
             <tbody>

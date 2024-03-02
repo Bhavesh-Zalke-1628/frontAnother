@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import { nanoid } from 'nanoid'
 function StudentCard({ data ,index}) {
-    console.log(data)
-
     return (
         <table className=' w-[70%] h-12'>
             <tbody>

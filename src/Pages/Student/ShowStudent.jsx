@@ -12,7 +12,6 @@ function ShowStudent() {
     return state.students
   })
 
-  console.log(studentData)
 
   async function onLoadData() {
     await dispatch(getStudentData())

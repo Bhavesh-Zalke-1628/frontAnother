@@ -16,7 +16,6 @@ function AdminProfile() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const adminData = useSelector((state) => state.admin.data)
-    console.log(adminData)
     return (
         <>
             < div className=' w-full h-[90vh] relative flex justify-center items-center gap-10 flex-col'>

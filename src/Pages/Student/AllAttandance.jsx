@@ -4,25 +4,32 @@ import NavigateArrow from '../../Component/NavigateArrow'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getAllStudentAttandance } from '../../Redux/Slicees/AttendacneSlice'
+import AllStudent from '../../Constant/AllStudent'
 
 function AllAttandance() {
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-
-    const data = useSelector((state) => {
-        return state
+    const { allAttendance } = useSelector((state) => {
+        return state.attendance
     })
 
-     
+    console.log(allAttendance)
+
+    async function onLoadData() {
+        await dispatch(getAllStudentAttandance())
+    }
 
     useEffect(() => {
-        dispatch(getAllStudentAttandance())
+        onLoadData()
     }, []);
 
     return (
         <>
             <NavigateArrow />
+            {/* {allAttendance[0].map((element, index) => {
+                return <allAttendance key={element.id} data={element} index={index} />
+            })} */}
             <table className=' w-[70%] h-12 sticky top-0 left-60 bg-white mt-10'>
                 <tbody>
                     <tr>
@@ -47,7 +54,7 @@ function AllAttandance() {
                     </tr>
                 </tbody>
             </table>
-            {/* <AllStudent /> */}
+            <AllStudent />
             <Footer />
         </>
     )
