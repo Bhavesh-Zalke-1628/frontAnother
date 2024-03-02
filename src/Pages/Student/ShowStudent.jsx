@@ -38,6 +38,7 @@ function ShowStudent() {
           </tbody>
         </table>
         {studentData.map((element, index) => {
+          console.log('element',element)
           return <StudentCard key={element._id} data={element} index={index} />
         })}
       </div>

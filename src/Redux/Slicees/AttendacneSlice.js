@@ -62,7 +62,7 @@ const attendaceSlice = createSlice({
         builder
             .addCase(getAllStudentAttandance.fulfilled, (state, action) => {
                 console.log(action.payload)
-                state.allAttendance = [action.payload.data]
+                state.allAttendance = action.payload.data
             })
     }
 })
