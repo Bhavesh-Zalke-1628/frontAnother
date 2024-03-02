@@ -8,6 +8,7 @@ import SignUp from './Pages/Admin/SignUp'
 import AdminProfile from './Pages/Admin/AdminProfile'
 import Home from './Pages/MendatorPages/Home'
 import NotFoundPage from './Pages/MendatorPages/NotFoundPage'
+import AllAttandance from './Pages/Student/AllAttandance'
 
 function App() {
   return (
@@ -25,8 +26,10 @@ function App() {
         {/* Student Route  */}
         <Route path='/show-student' element={<ShowStudent />}></Route>
         <Route path='/create-student' element={<CreateStudent />}></Route>
-        <Route path='/student/attendance' element={<Attendance />}></Route>
 
+        {/* Attandacne Route */}
+        <Route path='/student/attendance' element={<Attendance />}></Route>
+        <Route path='/attendance/get' element={<AllAttandance />}></Route>
 
 
         {/* Not Found Route  */}

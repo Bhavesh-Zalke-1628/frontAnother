@@ -54,6 +54,12 @@ function AdminProfile() {
                     </div>
                 </div>
                 <div className=' flex gap-10 ml-[35%]'>
+
+                    <button className=' text-xl cursor-pointer border-2 px-4 py-2 rounded-lg capitalize font-semibold shadow-lg shadow-indigo-500/40'>
+                        <Link to='/attendance/get'>
+                            Show Attandance
+                        </Link>
+                    </button>
                     <button className=' text-xl cursor-pointer border-2 px-4 py-2 rounded-lg capitalize font-semibold shadow-lg shadow-indigo-500/40'>
                         <Link to='/show-student'>
                             Show Student

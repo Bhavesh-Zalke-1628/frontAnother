@@ -3,7 +3,7 @@ import studentAxios from "../../Helper/StudentAxios"
 import toast from "react-hot-toast"
 
 const initialState = {
-    allAttendance: localStorage.getItem('attandacne') || []
+    allAttendance: localStorage.getItem('attandaceData') || []
 }
 
 
@@ -15,9 +15,6 @@ export const presentThunk = createAsyncThunk('/attendance', async (data) => {
         success: (await response).data.msg,
         error: " Failed to attandce increse"
     })
-    const x = await response
-    console.log(x)
-    return (await response).data
 })
 
 
@@ -33,11 +30,30 @@ export const absentThunk = createAsyncThunk('/attendance', async (data) => {
 })
 
 
+
+
+export const getAllStudentAttandance = createAsyncThunk('/attendance/get', async () => {
+    try {
+        const response = await studentAxios.get('/attendace/get')
+        console.log('response', response.data.data)
+        return response.data.data
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 const attendaceSlice = createSlice({
     name: "attendance",
     reducers: {},
     initialState,
-    extraReducers: (builder) => { }
+    extraReducers: (builder) => {
+        builder
+            .addCase(getAllStudentAttandance.fulfilled, (state, action) => {
+                console.log('action',action)
+                state.allAttendance = action.payload
+            })
+    }
 })
 
 
