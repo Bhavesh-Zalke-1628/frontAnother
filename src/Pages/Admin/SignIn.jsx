@@ -3,9 +3,10 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { login } from '../../Redux/Slicees/AdminSlice';
 import Footer from '../../Component/Footer';
 import NavigateArrow from '../../Component/NavigateArrow';
+import logIn from '../../assets/Images/logIn.png'
+
 function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -44,13 +45,17 @@ function SignIn() {
 
   return (
     <>
+      <div className=' bg-blue-200 w-[100vw] absolute right-0 min-h-[90vh] flex items-center justify-evenly gap-20'>
       <NavigateArrow />
-      <div className=' w-[100vw] min-h-[84vh] flex items-center justify-center gap-20'>
+        <img
+        className=' w-[45%]'
+        src={logIn} alt="" />
         <form
           noValidate
           onSubmit={onLogin}
-          className='min-h-[50vh] w-96 bg-blue-400  rounded-xl px-7 flex flex-col gap-3 py-3'>
-          <h1 className=' text-3xl capitalize text-white text-center'>Log in form</h1>
+          className='min-h-[70vh] w-96 bg-blue-400  rounded-xl px-7 flex flex-col gap-3 py-3'>
+         
+          <h1 className=' text-3xl capitalize text-white text-center font-semibold mt-7 '>Log in form</h1>
 
           <div className=' flex flex-col gap-2 mt-2'>
             <label className=' text-white text-xl'>
@@ -84,7 +89,7 @@ function SignIn() {
           </div>
           <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Sign In</button>
           <p className=' text-center text-lg'>Do not have account
-            {" ?   "}  
+            {" ?   "}
             <span className=' text-center text-blue-900 underline text-xl mt-10 hover:text-white'>
               <Link to='/signup'>
                 SignUp

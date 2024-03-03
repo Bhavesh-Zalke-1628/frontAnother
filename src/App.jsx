@@ -9,6 +9,7 @@ import AdminProfile from './Pages/Admin/AdminProfile'
 import Home from './Pages/MendatorPages/Home'
 import NotFoundPage from './Pages/MendatorPages/NotFoundPage'
 import AllAttandance from './Pages/Student/AllAttandance'
+import Staff from './Pages/MendatorPages/Staff'
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
 
         {/* Home Route  */}
         <Route path='' element={<Home />}></Route>
+
+        {/* Staff Page  */}
+        <Route path='/staff' element={<Staff />}></Route>
 
         {/* Admin Route */}
         <Route path='/signin' element={<SignIn />}></Route>

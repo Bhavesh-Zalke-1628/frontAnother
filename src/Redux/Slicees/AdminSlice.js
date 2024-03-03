@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../Helper/AxiosInstance";
 import { toast } from 'react-hot-toast'
+import studentAxios from "../../Helper/StudentAxios";
+import axios from "axios";
 const initialState = {
     status: localStorage.getItem('status') || false,
-    data:JSON.parse(localStorage.getItem('data')) || {}
+    data: (localStorage.getItem('data')) || {},
+    AdminData: localStorage.getItem('admins') || []
 }
 
 
@@ -62,6 +65,17 @@ export const logout = createAsyncThunk("/logout", async () => {
 })
 
 
+export const getAllAdminData = createAsyncThunk('/staff', async () => {
+    const response = axiosInstance.get('/details')
+    toast.promise(response, {
+        loading: "Wait!! Loading admin data",
+        success: "Admin data load successfully",
+        error: "Failed to load admin data"
+    })
+    console.log((await response).data.response)
+    return (await response).data.response
+})
+
 
 const adminSlice = createSlice({
     name: "Admin",
@@ -80,6 +94,12 @@ const adminSlice = createSlice({
                 localStorage.clear();
                 state.data = {};
                 state.status = false;
+            })
+            .addCase(getAllAdminData.fulfilled, (state, action) => {
+                console.log(action)
+                console.log("hello")
+                state.AdminData = action.payload
+                localStorage.setItem('admins', action.payload)
             })
     }
 })
