@@ -78,14 +78,14 @@ function Header() {
 
                     </div>
                 )}
-                <div className=' cursor-pointer w-10 h-10'
+                <div className=' cursor-pointer w-28 bg-yellow-500 h-10 flex items-center justify-center'
                     onClick={() => {
                         dispatch(toogleTheam())
                     }}
                 >
                     {theam &&
                         <MdModeNight
-                            className={'icon text-xl border-2 border-white' + theam ? '' : ' bg-black text-white border-none w-28'}
+                            className={'icon text-xl border-2 border-white' + theam ? '' : ' bg-black text-white border-none h-screen'}
                         />
                     }
                     {!theam &&

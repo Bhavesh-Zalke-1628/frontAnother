@@ -1,24 +1,31 @@
 import React from 'react'
 
-function AllStudentCard({ attandacne, student }) {
-    console.log(attandacne)
-    console.log(student)
+function AllStudentCard({ data }) {
     return (
-        <table className=' w-[70%] h-12 sticky top-0 left-60 bg-white mt-10'>
-            <tbody>
-                <tr>
-                    <th className=' border-2 text-xl capitalize border-black text-center'>name</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                    <th className=' border-2 text-xl capitalize border-black text-center w-24'>Date</th>
-                </tr>
-            </tbody>
-        </table>
+        <div className=' flex'>
 
+            <tr className='relative top-20 left-56'>
+
+            </tr>
+
+            <tr className='relative top-20 left-56'>
+                {/* <td className=' border-2 text-xl capitalize border-black text-center'>
+                <h1>
+                    {
+                        data[0].name
+                    }
+                </h1>
+            </td> */}
+                <td className=' border-2 text-xl capitalize border-black text-center px-7 py-2'>
+                 
+                    {
+                            data[1].present == true ? "✅" : "❌"
+                    }
+                </td>
+            </tr>
+
+                    
+        </div>
     )
 }
 
