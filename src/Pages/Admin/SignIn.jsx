@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../../Component/Footer';
 import NavigateArrow from '../../Component/NavigateArrow';
 import logIn from '../../assets/Images/logIn.png'
+import { loginThunk } from '../../Redux/Slicees/AdminSlice';
 
 function SignIn() {
   const dispatch = useDispatch()
@@ -34,7 +35,7 @@ function SignIn() {
 
     // dispatch the data 
 
-    const res = await dispatch(login(signInData))
+    const res = await dispatch(loginThunk(signInData))
     if (res?.payload?.success)
       navigate('/admin/profile')
     setSignInData({

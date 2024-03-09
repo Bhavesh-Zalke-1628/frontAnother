@@ -5,8 +5,8 @@ import studentAxios from "../../Helper/StudentAxios";
 import axios from "axios";
 const initialState = {
     status: localStorage.getItem('status') || false,
-    data: (localStorage.getItem('data')) || {},
-    AdminData: localStorage.getItem('admins') || []
+    data: JSON.parse(localStorage.getItem('data')) || {},
+    AdminData: (localStorage.getItem('admins')) || [],
 }
 
 
@@ -30,7 +30,7 @@ export const createAccount = createAsyncThunk("/signup", async (data) => {
     }
 })
 
-export const login = createAsyncThunk('/signin', async (data) => {
+export const loginThunk = createAsyncThunk('/signin', async (data) => {
     const response = axiosInstance.post('/login', data)
     try {
         toast.promise(response, {
@@ -67,12 +67,13 @@ export const logout = createAsyncThunk("/logout", async () => {
 
 export const getAllAdminData = createAsyncThunk('/staff', async () => {
     const response = axiosInstance.get('/details')
+    console.log('response',response)
     toast.promise(response, {
         loading: "Wait!! Loading admin data",
         success: "Admin data load successfully",
         error: "Failed to load admin data"
     })
-    console.log((await response).data.response)
+    console.log((await response).data)
     return (await response).data.response
 })
 
@@ -83,12 +84,11 @@ const adminSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(login.fulfilled, (state, action) => {
+            .addCase(loginThunk.fulfilled, (state, action) => {
                 localStorage.setItem('status', true)
                 localStorage.setItem('data', JSON.stringify(action?.payload?.adminExist))
                 state.status = true
                 state.data = action?.payload?.adminExist
-
             })
             .addCase(logout.fulfilled, (state) => {
                 localStorage.clear();
@@ -96,10 +96,9 @@ const adminSlice = createSlice({
                 state.status = false;
             })
             .addCase(getAllAdminData.fulfilled, (state, action) => {
-                console.log(action)
-                console.log("hello")
-                state.AdminData = action.payload
-                localStorage.setItem('admins', action.payload)
+                console.log('action',action.payload)
+                state.AdminData = [...action.payload],
+                    localStorage.setItem('admins', (action?.payload))
             })
     }
 })

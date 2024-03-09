@@ -1,27 +1,30 @@
 import React from 'react'
 
-const StaffCard = ({data}) => {
-    console.log(data)
+const StaffCard = ({ data }) => {
     return (
         <tr>
-            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <div className='flex items-center'>
-                    <div className='flex-shrink-0 w-10 h-10'>
+            <td className='px-5 py-5 border-b border-blue-200 bg-white text-sm'>
+                <div className='flex items-center gap-10'>
+                    <div className='flex-shrink-0 w-20 h-20 '>
                         <img
                             className='w-full h-full rounded-full'
-                            src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+                            src={data?.profile?.
+                                secure_url
+                            }
                             alt=''
                         />
                     </div>
                     <div className='ml-3'>
-                        <p className='text-gray-900 whitespace-no-wrap'>
-                            Vera Carpenter
+                        <p className='text-gray-900 whitespace-no-wrap capitalize text-xl'>
+                            {
+                                data.fullname
+                            }
                         </p>
                     </div>
                 </div>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>Admin</p>
+                <p className='text-gray-900 whitespace-no-wrap text-xl'>{data?.email}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 <span className='relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
@@ -29,7 +32,7 @@ const StaffCard = ({data}) => {
                         aria-hidden
                         className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
                     ></span>
-                    <span className='relative'>Activo</span>
+                    <span className='relative'>Teacher</span>
                 </span>
             </td>
         </tr>

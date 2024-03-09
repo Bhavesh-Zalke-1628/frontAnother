@@ -10,6 +10,7 @@ import Home from './Pages/MendatorPages/Home'
 import NotFoundPage from './Pages/MendatorPages/NotFoundPage'
 import AllAttandance from './Pages/Student/AllAttandance'
 import Staff from './Pages/MendatorPages/Staff'
+import TimeTable from './Pages/MendatorPages/TimeTable'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
         {/* Staff Page  */}
         <Route path='/staff' element={<Staff />}></Route>
+        <Route path='/timetable' element={<TimeTable />}></Route>
 
         {/* Admin Route */}
         <Route path='/signin' element={<SignIn />}></Route>

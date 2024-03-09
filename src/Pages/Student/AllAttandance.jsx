@@ -26,6 +26,7 @@ function AllAttandance() {
         return state.attendance.allAttendance
     })
 
+    // console.log(attandacneData)
 
     async function onLoadData() {
         await dispatch(getAllStudentAttandance())
@@ -42,11 +43,11 @@ function AllAttandance() {
                 <NavigateArrow />
                 <tr className=' relative top-20 left-56'>
                     <th className=' border-2 border-black px-[5.3vw] py-2 italic text-2xl text-black capitalize' > name</th>
-                    <th className=' border-2 border-black px-2 py-2 italic text-xl text-black capitalize' >{`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}</th>
+                    <th className=' border-2 border-black px-2 py-2 italic text-xl text-black capitalize' >{`${date.getDate() - 1}/${date.getMonth()}/${date.getFullYear()}`}</th>
+                    {/* <th className=' border-2 border-black px-2 py-2 italic text-xl text-black capitalize' >{`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}</th> */}
                 </tr>
                 <div className=' flex '>
                     <div>
-
                         {
                             studentData.map((ele) => {
                                 return <StudentName name={ele} />
@@ -54,14 +55,16 @@ function AllAttandance() {
                         }
                     </div>
                     <div>
-
                         {
-                            attandacneData.map((attendance) => {
+                            attandacneData.map((attendance, index) => {
+
                                 const attId = attendance.student_id;
+
                                 const studData = studentData.filter(hello => attId === hello._id);
-                                studData.push(attendance);
-                                console.log(studData)
-                                return < AllStudentCard data={studData} />
+                                console.log('studentData', studData)
+                                studData.push(attendance)
+                                console.log(attendance)
+                                return < AllStudentCard data={studData} number={index} />
                             },
                             )
                         }
