@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function NotFoundPage() {
+    
+    const theam = useSelector((state) => { return state.Theam })
     const navigate = useNavigate()
     return (
         <div className=' w-full h-screen flex gap-3 flex-col items-center justify-center'>

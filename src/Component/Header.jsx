@@ -28,7 +28,7 @@ function Header() {
     }
 
     return (
-        <div className={'nav h-3 flex items-center justify-between px-9 py-12  border-2 sticky' + (theam ? "" : 'dark')}>
+        <div className={'nav h-3 flex items-center justify-between px-9 py-12 shadow-[0_0_9px] sticky' + (theam ? "" : 'dark')}>
             {<SiSimplenote className=' text-5xl hover:text-blue-400 cursor-pointer' />}
             <ul className=' flex flex-row items-center justify-between gap-10'>
                 <li>
@@ -47,8 +47,8 @@ function Header() {
             {/* Not a logged in */}
             <div className=' flex flex-row gap-4 items-center justify-center'>
                 {!isLoogedIn && (
-                    <div className={'flex gap-10 border px-4 py-4' + (theam ? '' : 'dark')}>
-                        <button className='font-semibold px-4 py-2 border text-white bg-blue-600 hover:text-black rounded-md hover:bg-white hover:border-blue-400 transition-all ease-in-out duration-300' >
+                    <div className={'flex gap-10  px-4 py-4' + (theam ? '' : 'dark')}>
+                        <button className='font-semibold px-4 py-2  text-white bg-blue-500 hover:bg-blue-600  rounded-md  transition-all ease-in-out duration-300' >
                             <Link to='/signin'>
                                 Sign In
                             </Link>

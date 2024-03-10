@@ -12,6 +12,7 @@ function ShowStudent() {
     return state.students
   })
 
+  const theam = useSelector((state) => { return state.Theam })
 
   async function onLoadData() {
     await dispatch(getStudentData())
@@ -25,7 +26,7 @@ function ShowStudent() {
 
   return (
     <>
-      <div className='flex  items-center flex-col min-h-[100vh] bg-blue-200 relative'>
+      <div className={'flex  items-center flex-col min-h-[100vh]  relative'+ (theam ? "": " text-black bg-black border-black")}>
         <NavigateArrow />
         <table className=' w-[70%] h-12 sticky top-0 left-0 bg-white mt-10'>
           <tbody>
@@ -38,7 +39,7 @@ function ShowStudent() {
           </tbody>
         </table>
         {studentData.map((element, index) => {
-          console.log('element',element)
+          console.log('element', element)
           return <StudentCard key={element._id} data={element} index={index} />
         })}
       </div>

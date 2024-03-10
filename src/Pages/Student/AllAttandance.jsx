@@ -15,6 +15,8 @@ function AllAttandance() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const theam = useSelector((state) => { return state.Theam })
+
     const [availableStudentData, setAvailaableStudentData] = useState([])
     const [availableAttnadanceData, setAvailableAttnadanceData] = useState()
 
@@ -39,7 +41,7 @@ function AllAttandance() {
 
     return (
         <>
-            <div>
+            <div    >
                 <NavigateArrow />
                 <tr className=' relative top-20 left-56'>
                     <th className=' border-2 border-black px-[5.3vw] py-2 italic text-2xl text-black capitalize' > name</th>

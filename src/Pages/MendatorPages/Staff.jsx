@@ -7,6 +7,7 @@ const Staff = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const theam = useSelector((state) => { return state.Theam })
     const AdminData = useSelector((state) => {
         return state?.admin?.AdminData
     })

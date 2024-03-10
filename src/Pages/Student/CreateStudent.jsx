@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { createStudent } from '../../Redux/Slicees/StudentSlice';
 import NavigateArrow from '../../Component/NavigateArrow';
@@ -10,6 +10,8 @@ function CreateStudent() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  
+  const theam = useSelector((state) => { return state.Theam })
 
   const [data, setData] = useState({
     name: "",
@@ -50,7 +52,7 @@ function CreateStudent() {
   return (
 
     <>
-      <div className=' w-[100vw] h-[90vh] flex items-center justify-center'>
+      <div className={' w-[100vw] h-[90vh] flex items-center justify-center'+(theam ? "": " text-white bg-black border-none")}>
         <NavigateArrow />
         <form
           onSubmit={createNewAccount}

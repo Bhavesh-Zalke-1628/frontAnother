@@ -11,6 +11,7 @@ import NotFoundPage from './Pages/MendatorPages/NotFoundPage'
 import AllAttandance from './Pages/Student/AllAttandance'
 import Staff from './Pages/MendatorPages/Staff'
 import TimeTable from './Pages/MendatorPages/TimeTable'
+import MarkStat from './Pages/Mark/MarkStat'
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
         <Route path='/student/attendance' element={<Attendance />}></Route>
         <Route path='/attendance/get' element={<AllAttandance />}></Route>
 
-
+        {/* marks route */}
+        <Route path='/add/mark' element={<MarkStat />}></Route>
         {/* Not Found Route  */}
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>

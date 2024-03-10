@@ -1,11 +1,11 @@
 import React from 'react'
-
+import HomeLayout from '../../Layout/HomeLayout.jsx'
 function MarkStat() {
   return (
-    <div>
-      
-    </div>
+    <HomeLayout>
+
+    </HomeLayout>
   )
 }
 
-export default MarkStat
+  export default MarkStat

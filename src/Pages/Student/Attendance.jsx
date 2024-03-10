@@ -17,6 +17,9 @@ function Attendance() {
         return state.students
     })
 
+
+    const theam = useSelector((state) => { return state.Theam })
+
     async function onGetData() {
         await dispatch(getStudentData())
     }
@@ -66,7 +69,7 @@ function Attendance() {
         onGetData()
     }, []);
     return (
-        <div className=' w-full h-screen flex items-center justify-center flex-col relative '>
+        <div className={'w-full h-screen flex items-center justify-center flex-col relative ' + (theam ? "" : " text-white bg-black border-none")}>
             <h1 className=' text-4xl fixed top-10'>Attendance</h1>
             <h1>
                 Date : {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}

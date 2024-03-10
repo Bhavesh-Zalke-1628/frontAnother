@@ -1,6 +1,8 @@
 import React from 'react'
 
 const TimeTable = () => {
+    
+    const theam = useSelector((state) => { return state.Theam })
     return (
         <div class='flex flex-col'>
             <div class='overflow-x-auto sm:mx-0.5 lg:mx-0.5'>

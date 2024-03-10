@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
 import HomeLayout from '../../Layout/HomeLayout'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-hot-toast'
 import { createAccount } from '../../Redux/Slicees/AdminSlice'
 import { BsPersonCircle } from 'react-icons/bs'
 import Footer from '../../Component/Footer'
 import NavigateArrow from '../../Component/NavigateArrow'
+import signUpPhoto from '../../assets/Images/signUp.png'
+
+
 function SignUp() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    const theam = useSelector((state) => { return state.Theam })
+    console.log(theam)
     const [previewImage, setPreviewImage] = useState("");
     const [data, setData] = useState({
         fullname: "",
@@ -72,12 +76,19 @@ function SignUp() {
     }
     return (
         <>
-            <div className=' w-[100vw] h-[80vh] flex items-center justify-center'>
-                <NavigateArrow/>
+            <div className={'flex justify-center items-center' + (theam ? "" : " text-white bg-black border-none")}>
+                <NavigateArrow />
+                <div>
+                    <img
+                        src={signUpPhoto}
+                        alt="signUpPhoto"
+                        className='w-[60vw] h-[100vh]'
+                    />
+                </div>
                 <form
                     onSubmit={createNewAccount}
                     noValidate
-                    className='h-[80%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col'>
+                    className=' w-80 bg-blue-400 rounded-xl py-3 px-7 flex flex-col'>
                     <h1 className=' text-3xl capitalize text-white text-center'>registration form</h1>
                     <label htmlFor="image_uploads" className="cursor-pointer">
                         {previewImage ? (
@@ -139,10 +150,10 @@ function SignUp() {
                             className=' px-2 text-black bg-transparent border border-white rounded-md'
                         />
                     </div>
-                    <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600' type='submit'>Register</button>
+                    <button className=' mt-4 text-black border border-black rounded-lg  py-2 text-xl font-semibold cursor-pointer hover:bg-blue-600 hover:text-white hover:border-white hover:border-2 transition-all ease-in-out duration-300' type='submit'>Register</button>
                     <p className=' mt-2 text-center text-xm'>Already have an account ?<Link to='/signin' className=' underline text-xl hover:text-white'> Login</Link></p>
                 </form>
-            </div>
+            </div >
             <Footer />
         </>
     )

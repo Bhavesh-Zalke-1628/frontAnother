@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Footer from '../../Component/Footer';
 import NavigateArrow from '../../Component/NavigateArrow';
-import logIn from '../../assets/Images/logIn.png'
+import logInPhoto from '../../assets/Images/logInPhoto.png'
 import { loginThunk } from '../../Redux/Slicees/AdminSlice';
 
 function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  const theam = useSelector((state) => { return state.Theam })
+  console.log(theam)
   const [signInData, setSignInData] = useState({
     email: "",
     password: ""
@@ -46,16 +47,16 @@ function SignIn() {
 
   return (
     <>
-      <div className=' bg-blue-200 w-[100vw] absolute right-0 min-h-[90vh] flex items-center justify-evenly gap-20'>
-      <NavigateArrow />
+      <div className={' w-[100vw] absolute right-0 min-h-[90vh] flex items-center justify-evenly gap-20'+ (theam ? "": " text-white bg-black border-none")}>
+        <NavigateArrow />
         <img
-        className=' w-[45%]'
-        src={logIn} alt="" />
+          className=' w-[40%]'
+          src={logInPhoto} alt="" />
         <form
           noValidate
           onSubmit={onLogin}
-          className='min-h-[70vh] w-96 bg-blue-400  rounded-xl px-7 flex flex-col gap-3 py-3'>
-         
+          className='min-h-[50vh] w-96 bg-blue-400  rounded-xl px-7 flex flex-col gap-3 py-7'>
+
           <h1 className=' text-3xl capitalize text-white text-center font-semibold mt-7 '>Log in form</h1>
 
           <div className=' flex flex-col gap-2 mt-2'>

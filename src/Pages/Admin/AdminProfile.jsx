@@ -11,6 +11,7 @@ function AdminProfile() {
 
     const cuurentDate = new Date()
     const year = cuurentDate.getFullYear()
+    const theam = useSelector((state) => { return state.Theam })
 
     const navigator = useNavigate();
     const dispatch = useDispatch();
@@ -18,9 +19,9 @@ function AdminProfile() {
     const adminData = useSelector((state) => state.admin.data)
     return (
         <>
-            < div className=' w-full h-[90vh] relative flex justify-center items-center gap-10 flex-col'>
+            < div className={' w-full h-[90vh] relative flex justify-center items-center gap-10 flex-col' + (theam ? "" : " text-white bg-black border-white")}>
                 <NavigateArrow />
-                <div className=' flex flex-col items-center py-10 gap-14 w-[70vw] h-[70vh] bg-blue-400 rounded shadow-[0_0_10px_gray]'>
+                <div className={' flex flex-col items-center py-10 gap-14 w-[70vw] h-[70vh] rounded shadow-[0_0_10px_gray]' + (theam ? "" : " text-white bg-black border-white")}>
                     <div className=' w-[90%] h-[70%] flex  items-center justify-between'>
                         <div className='w-[20%] h-[90%]'>
 
@@ -37,11 +38,11 @@ function AdminProfile() {
                                         )
                                 }
                             </div>
-                            <p className=' text-xl text-center capitalize mt-10'>name :<br /><span>{adminData.fullname}</span></p>
+                            <p className=' text-xl text-center capitalize mt-10'>name :<br /><span >{adminData.fullname}</span></p>
                             <p className=' text-lg text-center'>Email  {adminData.email}</p>
                         </div>
                         <div className=' w-[75%] h-[90%]  flex flex-col gap-14'>
-                            <h1 className=' text-7xl capitalize text-center font-semibold'>{adminData.fullname}</h1>
+                            <h1 className=' text-7xl capitalize text-center font-semibold '>{adminData.fullname}</h1>
                             <ul className=' flex flex-row items-center justify-around gap-10 mt-10'>
                                 <li className=' px-10 py-3 text-xm font-semibold capitalize shadow-indigo-500/40 rounded-lg bg-blue-300 border-2 border-white cursor-pointer hover:bg-cyan-200 transition-all ease-in-out duration-300'> Computer Science</li>
                                 <li className=' px-10 py-3 text-xm font-semibold capitalize shadow-indigo-500/40 rounded-lg bg-blue-300 border-2 border-white cursor-pointer hover:bg-cyan-200 transition-all ease-in-out duration-300'>BCA III</li>
@@ -52,8 +53,12 @@ function AdminProfile() {
                         </div>
                     </div>
                 </div>
-                <div className=' flex gap-10 ml-[35%]'>
-
+                <div className=' flex gap-10'>
+                    <button className=' text-xl cursor-pointer border-2 px-4 py-2 rounded-lg capitalize font-semibold shadow-lg shadow-indigo-500/40'>
+                        <Link to='/add/mark'>
+                            Mark filling
+                        </Link>
+                    </button>
                     <button className=' text-xl cursor-pointer border-2 px-4 py-2 rounded-lg capitalize font-semibold shadow-lg shadow-indigo-500/40'>
                         <Link to='/attendance/get'>
                             Show Attandance
