@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import { createStudent } from '../../Redux/Slicees/StudentSlice';
 import NavigateArrow from '../../Component/NavigateArrow';
 import Footer from '../../Component/Footer';
-
+import registerStudent from '../../assets/Images/registerStudent.png'
+import TypeWriter from 'typewriter-effect'
 function CreateStudent() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  
+
   const theam = useSelector((state) => { return state.Theam })
 
   const [data, setData] = useState({
@@ -52,13 +53,33 @@ function CreateStudent() {
   return (
 
     <>
-      <div className={' w-[100vw] h-[90vh] flex items-center justify-center'+(theam ? "": " text-white bg-black border-none")}>
+      <div className={' w-full flex items-center justify-center px-20' + (theam ? "" : " text-white bg-black border-none")}>
         <NavigateArrow />
+        <div>
+          <img
+            src={registerStudent}
+            alt="register student img"
+            className=' w-[45vw]'
+          />
+        </div>
         <form
           onSubmit={createNewAccount}
           noValidate
           className='h-[70%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col gap-5 shadow-[0_0_10px_black]'>
-          <h1 className=' text-3xl capitalize text-white text-center'>registration form</h1>
+          <h1 className=' text-3xl capitalize text-white text-center font-semibold italic'>
+            {/* Student Registration */}
+            <TypeWriter
+              options={{
+                strings: ['Student Registration'],
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 50,
+                delay: 100,
+                pauseFor: 1000,
+                cursor: "👉🏻",
+              }}
+            />
+          </h1>
 
           <div className=' flex flex-col gap-2 mt-2'>
             <label htmlFor='name' className=' text-white text-xl'>

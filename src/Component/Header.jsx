@@ -78,18 +78,18 @@ function Header() {
 
                     </div>
                 )}
-                <div className=' cursor-pointer w-28 bg-yellow-500 h-10 flex items-center justify-center'
+                <div className=' cursor-pointer flex items-center justify-center'
                     onClick={() => {
                         dispatch(toogleTheam())
                     }}
                 >
                     {theam &&
                         <MdModeNight
-                            className={'icon text-xl border-2 border-white' + theam ? '' : ' bg-black text-white border-none h-screen'}
+                            className={'icon text-4xl border-2 border-white ' + theam ? '' : ' bg-black text-white border-none h-screen'}
                         />
                     }
                     {!theam &&
-                        <MdOutlineLightMode width={100} height={100} className={'text-8xl' + theam ? "" : 'text-white bg-black'} />}
+                        <MdOutlineLightMode width={100} height={100} className={' w-full' + theam ? "" : 'text-white bg-black'} />}
                 </div>
             </div>
 

@@ -21,9 +21,9 @@ function AdminProfile() {
         <>
             < div className={' w-full h-[90vh] relative flex justify-center items-center gap-10 flex-col' + (theam ? "" : " text-white bg-black border-white")}>
                 <NavigateArrow />
-                <div className={' flex flex-col items-center py-10 gap-14 w-[70vw] h-[70vh] rounded shadow-[0_0_10px_gray]' + (theam ? "" : " text-white bg-black border-white")}>
+                <div className={' flex flex-col  bg-blue-400 items-center py-10 gap-14 w-[70vw] h-[70vh] rounded shadow-[0_0_10px_gray]' + (theam ? "" : " text-white bg-black border-white")}>
                     <div className=' w-[90%] h-[70%] flex  items-center justify-between'>
-                        <div className='w-[20%] h-[90%]'>
+                        <div className='w-[20%] h-[90%] '>
 
                             <div className=' h-48 shadow-[0_0_10px_black] overflow-hidden rounded-lg flex items-center justify-center'>
 
