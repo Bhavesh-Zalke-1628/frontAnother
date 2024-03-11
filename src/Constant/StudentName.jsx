@@ -1,5 +1,6 @@
 import React from 'react'
 
+// this component is used in show the by default name of the student in attandance list
 function StudentName({ name }) {
 
     return (

@@ -15,26 +15,29 @@ function AllAttandance() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    // theam chenger 
     const theam = useSelector((state) => { return state.Theam })
 
     const [availableStudentData, setAvailaableStudentData] = useState([])
     const [availableAttnadanceData, setAvailableAttnadanceData] = useState()
 
+    // get the student data from state
     const { studentData } = useSelector((state) => {
         return state.students
     })
 
+    // get the attandacneData
     const attandacneData = useSelector((state) => {
         return state.attendance.allAttendance
     })
 
-    // console.log(attandacneData)
-
+    //  function to load the data 
     async function onLoadData() {
         await dispatch(getAllStudentAttandance())
         await dispatch(getStudentData())
     }
 
+    // useEffect
     useEffect(() => {
         onLoadData()
     }, []);
@@ -58,14 +61,18 @@ function AllAttandance() {
                     </div>
                     <div>
                         {
+                            // map on attandacneData 
                             attandacneData.map((attendance, index) => {
-
+                                // get the attendance id 
                                 const attId = attendance.student_id;
 
+                                // filter on the studentData
                                 const studData = studentData.filter(hello => attId === hello._id);
-                                console.log('studentData', studData)
+
+                                // push attendance in studData 
                                 studData.push(attendance)
-                                console.log(attendance)
+
+                                // return the component AllStudentCard 
                                 return < AllStudentCard data={studData} number={index} />
                             },
                             )

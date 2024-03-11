@@ -13,32 +13,37 @@ function Attendance() {
     const [rollNumber, setRollNumber] = useState(1)
     const [presentStudent, setPresentStudent] = useState(0)
     const [absentStudent, setAbsentStudent] = useState(0)
+    // get the studentData 
     const { studentData } = useSelector((state) => {
         return state.students
     })
 
-
+    // theam changer 
     const theam = useSelector((state) => { return state.Theam })
 
     async function onGetData() {
         await dispatch(getStudentData())
     }
 
+    // get the first instance of the student 
     const [singleData, setSingleData] = useState(JSON.parse(localStorage.getItem('student')))
 
-
+    // increase the students 
     function handleClick() {
         if (rollNumber < studentData.length) {
             setSingleData(studentData[rollNumber])
             setRollNumber(rollNumber + 1)
         }
     }
+
+    // function to handle present students 
     function presentStudentChagne() {
         if (presentStudent + absentStudent < studentData.length) {
             let counter = presentStudent + 1
             setPresentStudent(counter)
         }
     }
+    // function to handle absent students 
     function absentStudentChange() {
         if (absentStudent + presentStudent < studentData.length) {
             let counter = absentStudent + 1
@@ -47,17 +52,16 @@ function Attendance() {
     }
 
 
+    // this function  call to present function in slice 
     async function present() {
         console.log(singleData)
-        console.log("hello I am present")
         handleClick()
         presentStudentChagne()
         await dispatch(presentThunk(singleData._id))
     }
 
-
+    // this function  call to absent function in slice 
     async function absent() {
-        console.log("hello I am absent")
         let data = true
         handleClick()
         absentStudentChange()

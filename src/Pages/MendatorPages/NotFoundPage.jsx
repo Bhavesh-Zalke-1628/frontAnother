@@ -1,8 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+// this is the not found page
 function NotFoundPage() {
-    
+
+    // theam chenger 
     const theam = useSelector((state) => { return state.Theam })
     const navigate = useNavigate()
     return (

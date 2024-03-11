@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-// import { nanoid } from 'nanoid'
+
+// It is the show the student in table
 function StudentCard({ data, index }) {
     const theam = useSelector((state) => { return state.Theam })
     return (

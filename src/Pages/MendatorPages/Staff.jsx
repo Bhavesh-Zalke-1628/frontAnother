@@ -3,20 +3,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import StaffCard from '../../Constant/StaffCard'
 import { getAllAdminData } from '../../Redux/Slicees/AdminSlice'
+import { data } from 'autoprefixer'
 const Staff = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    // theam chenger 
     const theam = useSelector((state) => { return state.Theam })
+
+    // get the admin data 
     const AdminData = useSelector((state) => {
         return state?.admin?.AdminData
     })
 
-    console.log(AdminData[1])
-
+    // dispatch data
     async function getData() {
         await dispatch(getAllAdminData())
     }
+
+    // useEffect to render at the every changes
     useEffect(() => {
         getData()
     }, [])

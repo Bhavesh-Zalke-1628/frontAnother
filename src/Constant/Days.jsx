@@ -1,8 +1,9 @@
 import React from 'react'
 
+
+// Show the day absent and present with red and green sign
 function Days() {
     const date = new Date()
-    // cons 
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
     return (

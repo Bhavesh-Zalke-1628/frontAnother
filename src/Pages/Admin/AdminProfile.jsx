@@ -10,12 +10,17 @@ import { BsPersonCircle } from 'react-icons/bs';
 function AdminProfile() {
 
     const cuurentDate = new Date()
+
+    // get the year instance
     const year = cuurentDate.getFullYear()
+
+    // theam changer
     const theam = useSelector((state) => { return state.Theam })
 
-    const navigator = useNavigate();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    // get the admin data
     const adminData = useSelector((state) => state.admin.data)
     return (
         <>

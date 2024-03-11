@@ -5,13 +5,16 @@ import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
 import StudentCard from '../../Constant/StudentCard'
 import { useNavigate } from 'react-router-dom'
 import NavigateArrow from '../../Component/NavigateArrow'
+// show student data
 function ShowStudent() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  // get the studentData 
   const { studentData } = useSelector((state) => {
     return state.students
   })
-
+  // theam changer 
   const theam = useSelector((state) => { return state.Theam })
 
   async function onLoadData() {
@@ -26,7 +29,7 @@ function ShowStudent() {
 
   return (
     <>
-      <div className={'flex  items-center flex-col min-h-[100vh]  relative'+ (theam ? "": " text-black bg-black border-black")}>
+      <div className={'flex  items-center flex-col min-h-[100vh]  relative' + (theam ? "" : " text-black bg-black border-black")}>
         <NavigateArrow />
         <table className=' w-[70%] h-12 sticky top-0 left-0 bg-white mt-10'>
           <tbody>

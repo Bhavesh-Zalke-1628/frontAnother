@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoArrowBackCircleOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
-
+// this is the naviagete arrorw at the -1 position 
 function NavigateArrow() {
     const navigate = useNavigate()
     return (

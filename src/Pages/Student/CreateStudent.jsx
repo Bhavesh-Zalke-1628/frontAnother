@@ -11,15 +11,17 @@ function CreateStudent() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  // theam changer 
   const theam = useSelector((state) => { return state.Theam })
 
+  // state for the studentData 
   const [data, setData] = useState({
     name: "",
     email: "",
     phone: "",
   })
 
+  // hadnle user chagnes in input field 
   function handleUserInput(e) {
     const { name, value } = e.target;
     setData({
@@ -27,14 +29,18 @@ function CreateStudent() {
       [name]: value
     })
   }
+
+  // function to createStudent 
   async function createNewAccount(event) {
     event.preventDefault();
 
+    // chaeck all fields F
     if (!data.name || !data.email || !data.phone) {
       toast.error("All required")
       return;
     }
 
+    // formData instance 
     const formData = new FormData()
     formData.append('name', data.name)
     formData.append('email', data.email)
@@ -42,8 +48,8 @@ function CreateStudent() {
 
     const response = dispatch(createStudent(formData))
     if (response?.payload?.success)
-      console.log('this is the payload data >', response?.payload?.success)
-    navigate('/show-student')
+      // response is success the navigate to '/show-student'
+      navigate('/show-student')
     setData({
       name: "",
       email: "",
@@ -67,7 +73,8 @@ function CreateStudent() {
           noValidate
           className='h-[70%] w-96 bg-blue-400  rounded-xl py-3 px-7 flex flex-col gap-5 shadow-[0_0_10px_black]'>
           <h1 className=' text-3xl capitalize text-white text-center font-semibold italic'>
-            {/* Student Registration */}
+
+            {/* tyope writer for the form heading */}
             <TypeWriter
               options={{
                 strings: ['Student Registration'],

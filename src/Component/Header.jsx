@@ -28,7 +28,7 @@ function Header() {
     }
 
     return (
-        <div className={'nav h-3 flex items-center justify-between px-9 py-12 shadow-[0_0_9px] sticky' + (theam ? "" : 'dark')}>
+        <div className={' bg-[#0a0b32] nav h-3 flex items-center justify-between px-9 py-12 shadow-[0_0_9px] sticky' + (theam ? "" : 'dark')}>
             {<SiSimplenote className=' text-5xl hover:text-blue-400 cursor-pointer' />}
             <ul className=' flex flex-row items-center justify-between gap-10'>
                 <li>

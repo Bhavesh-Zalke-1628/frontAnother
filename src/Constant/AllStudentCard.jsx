@@ -1,5 +1,6 @@
 import React from 'react'
 
+// to generate the card for the attandacne of the student
 function AllStudentCard({ data, number }) {
     // console.log(data[1].
     //     createdAt[9])

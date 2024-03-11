@@ -1,5 +1,5 @@
 import React from 'react'
-
+// it is the staff member series
 const StaffCard = ({ data }) => {
     return (
         <tr>

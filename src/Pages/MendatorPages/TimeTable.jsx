@@ -1,7 +1,7 @@
 import React from 'react'
 import NavigateArrow from '../../Component/NavigateArrow'
 import Footer from '../../Component/Footer'
-
+// used to show the time table
 function TimeTable() {
     return (
         <>

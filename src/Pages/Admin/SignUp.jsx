@@ -7,13 +7,15 @@ import { createAccount } from '../../Redux/Slicees/AdminSlice'
 import { BsPersonCircle } from 'react-icons/bs'
 import Footer from '../../Component/Footer'
 import NavigateArrow from '../../Component/NavigateArrow'
-import signUpPhoto from '../../assets/Images/signUp.png'
+import { isEmail, isPassword } from '../../Helper/regesxMatcher'
 
 
 function SignUp() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    
+    // theam changer
     const theam = useSelector((state) => { return state.Theam })
     console.log(theam)
     const [previewImage, setPreviewImage] = useState("");
@@ -24,6 +26,7 @@ function SignUp() {
         profile: ""
     })
 
+    // to track the changes in fileds
     function handleUserInput(e) {
         const { name, value } = e.target;
         setData({
@@ -32,6 +35,7 @@ function SignUp() {
         })
     }
 
+    // handle the imageUpload
     async function getImage(event) {
         event.preventDefault();
         const uploadImg = event.target.files[0]
@@ -52,20 +56,41 @@ function SignUp() {
     async function createNewAccount(event) {
         event.preventDefault();
 
+        // check the fields
         if (!data.fullname || !data.email || !data.password) {
             toast.error("All required")
             return;
         }
+        // checking name field length
+        if (data.fullName.length < 5) {
+            toast.error("Name should be atleast of 5 characters")
+            return;
+        }
+        // checking valid email
+        if (!isEmail(data.email)) {
+            toast.error("Invalid email id");
+            return;
+        }
+        // checking password validation
+        if (!isPassword(data.password)) {
+            toast.error("Password should be 6 - 16 character long with atleast a number and special character");
+            return;
+        }
 
+        // create an formData instance for the send data to slice
         const formData = new FormData()
         formData.append('fullname', data.fullname)
         formData.append('email', data.email)
         formData.append('password', data.password)
         formData.append('profile', data.profile)
 
+        // get response for the function
         const response = dispatch(createAccount(formData))
+
         if (response?.payload?.success)
             console.log('this is the payload data >', response?.payload?.success)
+
+        // suucessfull then navigate to home ('/') page
         navigate('/')
         setData({
             fullname: "",

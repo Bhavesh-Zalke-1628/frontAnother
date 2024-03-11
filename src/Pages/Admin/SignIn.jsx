@@ -11,13 +11,18 @@ import { loginThunk } from '../../Redux/Slicees/AdminSlice';
 function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  // theam chagner 
   const theam = useSelector((state) => { return state.Theam })
   console.log(theam)
+
+  // state for the enter's data
   const [signInData, setSignInData] = useState({
     email: "",
     password: ""
   })
 
+  // handle the user input
   function handleUserInput(e) {
     const { name, value } = e.target;
     setSignInData({
@@ -26,7 +31,7 @@ function SignIn() {
     })
   }
 
-
+// funtion for thee login process
   async function onLogin(event) {
     event.preventDefault();
 
@@ -35,7 +40,6 @@ function SignIn() {
     }
 
     // dispatch the data 
-
     const res = await dispatch(loginThunk(signInData))
     if (res?.payload?.success)
       navigate('/admin/profile')

@@ -1,9 +1,8 @@
 import axios from "axios";
-
+// it is the base url to connect with backend
 const BASE_URL = "http://localhost:4000/api/admin";
 
-// http://localhost:5000/api/cource
-
+//  create an instance of the axios
 const axiosInstance = axios.create();
 
 axiosInstance.defaults.baseURL = BASE_URL;
